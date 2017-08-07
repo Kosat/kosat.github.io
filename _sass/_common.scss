@@ -1,0 +1,14 @@
+$massive-vertical-border: 3px solid lighten($navbar-default-bg, 50%);
+$horizontal-separating-border: 1px solid #ddd;
+$post-info-tag-color: #aaa;
+
+// Greyish vertical border to the left from posts or tag cloud
+@mixin massive-vertical-border-common($height) {
+     content : "";
+     position: absolute;
+     left    : 0;
+     top  : 0;
+     width  : 1px;
+     border-left: $massive-vertical-border;
+     height   : $height;
+}

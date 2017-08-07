@@ -1,0 +1,35 @@
+.footer {
+    clear: both;
+    border-top: 1px solid #333;
+    background-color: #F7F7F7;
+    text-align: center;
+    padding: 2rem;
+    & &-notes {
+        display: inline-block;
+        vertical-align: middle;
+        float: none;
+        p {
+            text-align: left;
+            color: #333;
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 0;
+        }
+    }
+    nav {
+        display: inline-block;
+        vertical-align: middle;
+        float: none;
+        padding-block-start: 0;
+        -webkit-padding-start: 0;
+        @media (min-width: $screen-sm-min) {
+            padding-block-start: 2rem;
+            -webkit-padding-start: 2rem;
+        }
+    }
+    a {
+        i {
+            margin: auto 0.5rem;
+        }
+    }
+}

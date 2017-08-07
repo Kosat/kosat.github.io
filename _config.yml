@@ -1,0 +1,47 @@
+encoding: UTF-8
+title: "Kostya's Tech Blog"
+description: "A technical blog about programming and software."
+email: kravetc.kostya@gmail.com
+github_username:  kosat
+google_username: kravetc.kostya
+
+url: "https://kosat.github.io"
+baseurl: ""
+
+# Conversion
+markdown: kramdown
+kramdown:
+    input: GFM
+    auto_ids: false
+    syntax_highlighter: rouge
+    syntax_highlighter_opts:
+        hard_wrap: true
+        line_numbers: false
+
+highlighter: rouge
+
+# Handling Reading
+exclude:  
+    - node_modules 
+    - gulpfile.js 
+    - package.json 
+    - .gitignore 
+    - Gemfile
+    - Gemfile.lock 
+    - LICENSE
+    - README.md
+
+# Plugins
+gems:
+ #   - jekyll-paginate
+    - jekyll-feed
+    - jekyll-sitemap
+
+
+# Outputting
+permalink: pretty
+
+sass: 
+   style: compressed
+
+    

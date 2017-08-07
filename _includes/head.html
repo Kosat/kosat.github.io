@@ -1,0 +1,21 @@
+{% capture _title %} {% if page.title %}{{ page.title}}{% else %}{{ site.title }}{% endif %} {% endcapture %}
+{% capture _description %} {% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 160 }}{% else %}{{ site.description }}{% endif %} {% endcapture %}
+
+<head>
+    <title>{{_title}}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="{{_description}}">
+    <link rel="shortcut icon" href="{{ site.baseurl }}/favicon.ico?v=00006">
+    <link rel="icon" href="{{ site.baseurl }}/favicon.ico?v=00006">
+    <link rel="apple-touch-icon image_src" href="{{ site.baseurl }}/apple-touch-icon.png?v=cd9bd337275bs">
+    <link rel="stylesheet" href="{{ '/css/main.css?v=c4cvmDfCyb1gJ' | prepend: site.baseurl }}">
+    <link rel="canonical" href="{{ site.baseurl }}{{ page.url }}">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ site.baseurl }}/feed.xml" />
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="{{_title}}">
+    <meta property="og:url" content="{{ site.baseurl }}/index.html">
+    <meta property="og:site_name" content="{{_title}}">
+    <meta property="og:description" content="{{_description}}">
+</head>

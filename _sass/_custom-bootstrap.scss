@@ -1,0 +1,99 @@
+//*************************************
+//*******Bootstrap customizations******
+//*************************************  
+//
+// Badges
+// --------------------------------------------------
+// Base class
+.badge {
+    display: inline-block;
+    min-width: 10px;
+    padding: 3px 7px;
+    font-size: $font-size-small;
+    font-weight: $badge-font-weight;
+    color: $badge-color;
+    line-height: $badge-line-height;
+    vertical-align: text-bottom;
+    white-space: nowrap;
+    text-align: center;
+    background-color: $badge-bg;
+    border-radius: 0;
+    // Empty badges collapse automatically (not available in IE8)
+    &:empty {
+        display: none;
+    }
+    // Quick fix for badges in buttons
+    .btn & {
+        position: relative;
+        top: -1px;
+    }
+    .btn-xs &,
+    .btn-group-xs>.btn & {
+        top: 0;
+        padding: 1px 5px;
+    }
+    // [converter] extracted a& to a.badge
+    // Account for badges in navs
+    .list-group-item.active>&,
+    .nav-pills>.active>a>& {
+        color: $badge-active-color;
+        background-color: $badge-active-bg;
+    }
+    .list-group-item>& {
+        float: right;
+    }
+    .list-group-item>&+& {
+        margin-right: 5px;
+    }
+    .nav-pills>li>a>& {
+        margin-left: 3px;
+    }
+}
+
+// Hover state, but only for links
+a.badge {
+    &:hover,
+    &:focus {
+        color: $badge-link-hover-color;
+        text-decoration: none;
+        cursor: pointer;
+    }
+}
+
+// Navbar toggle
+//
+// Custom button for toggling the `.navbar-collapse`, powered by the collapse
+// JavaScript plugin.
+.navbar-toggle {
+    position: relative;
+    float: right;
+    margin-right: $navbar-padding-horizontal;
+    padding: 9px 10px;
+    @include navbar-vertical-align(34px);
+    background-color: transparent;
+    background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+    border: 1px solid transparent;
+    border-radius: $border-radius-base;
+    // We remove the `outline` here, but later compensate by attaching `:hover`
+    // styles to `:focus`.
+    &:focus {
+        outline: 0;
+        background-color: transparent !important;
+    }
+    &:hover {
+        background-color: lighten($navbar-default-bg, 25%) !important;
+    }
+    // Bars
+    .icon-bar {
+        display: block;
+        width: 22px;
+        height: 2px;
+        border-radius: 1px;
+    }
+    .icon-bar+.icon-bar {
+        margin-top: 4px;
+    }
+    @media (min-width: $grid-float-breakpoint) {
+        display: none;
+    }
+}

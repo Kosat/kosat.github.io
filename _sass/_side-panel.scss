@@ -1,0 +1,15 @@
+.side-panel {
+    padding: 0 0 0.5rem 2rem;
+    margin-bottom: 20px;
+    border-left: $massive-vertical-border;
+    & .side-panel-header {
+        border-bottom: $horizontal-separating-border;
+        padding-bottom: 0.5rem;
+        font-weight: bold;
+        font-size: 16px;
+    }
+    & .side-panel-content a {
+        display: inline-block;
+        padding: 0.3em 0.3em;
+    }
+}

@@ -1,0 +1,23 @@
+--- 
+layout: default 
+---
+
+<main role="main" class="col-md-10 col-md-offset-1">
+    <article class="post post-full" itemscope itemtype="http://schema.org/BlogPosting">
+        <header class="post-header">
+            <h2 class="post-title">
+                <a href="{{site.baseurl}}{{page.url}}" datetime="{{page.date}}" title="Permanent Link to {{site.baseurl}}{{page.url}}">{{page.title}}</a>
+            </h2>
+            <div class="post-info">
+                <span class="post-date">
+                     <i class="fa fa-calendar"></i>
+                     <time itemprop="dateCreated" datetime="{{page.date}}">{{ page.date | date: "%B %-d, %Y" }}</time>
+                     </span> {% for tag in page.tags %}
+                <a class="pull-right post-tag" href="{{ site.baseurl }}/tags/index.html#{{ tag | slugify }}" rel="tag"><i class="fa fa-tag"></i>{{ tag }}</a> {% endfor %}
+            </div>
+        </header>
+        <section class="post-body">
+            {{ content }}
+        </section>
+    </article>
+</main>

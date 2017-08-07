@@ -1,0 +1,37 @@
+--- 
+layout: default 
+---
+
+<div class="col-md-8 col-md-offset-2">
+	{% include tags_sidebar.html %}
+
+	<main class="tags-archive">
+		{% assign sorted_tags = site.tags | sort %} 
+		{% for tag in sorted_tags %}
+		<section>
+			<header>
+				<h3 id="{{ tag[0] | slugify }}"><i class="fa fa-tag fa-2x"></i>{{ tag[0] }}</h3>
+			</header>
+			<section>
+				<table summary="Posts by a tag" class="table">
+					{% for post in tag[1] %}
+					<tr>
+						<td>
+							<a class="post-title" href="{{ site.baseurl }}{{ post.url }}">
+								{{ post.title }}
+							</a>
+						</td>
+						<td>
+							<span class="post-date">
+								<i class="fa fa-calendar"></i>
+								<time itemprop="dateCreated" datetime="{{post.date}}">{{ post.date | date: "%B %-d, %Y" }}</time>
+							</span>
+						</td>
+					</tr>
+					{% endfor %}
+				</table>
+			</section>
+		<section>
+		{% endfor %}
+	</main>
+</div>

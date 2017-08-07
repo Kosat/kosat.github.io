@@ -1,0 +1,18 @@
+<div class="side-panel">
+
+    <h4 class="side-panel-header">
+        TAGS
+    </h4>
+
+    <div class="side-panel-content">
+        <nav>
+            {% assign sorted_tags = site.tags | sort %} 
+            {% for tag in sorted_tags %}
+            <a href="{{site.baseurl}}/tags/#{{ tag | first | slugify }}">{{ tag | first }}
+                    <span class="badge">{{ tag | last | size }}</span>
+            </a>
+            {% endfor %}
+
+        </nav>
+    </div>
+</div>

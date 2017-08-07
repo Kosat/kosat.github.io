@@ -1,0 +1,23 @@
+.tags-archive {
+    position: relative;
+    margin-top: 3.5em;
+    section {
+        header {
+            & > h3 {
+                display: inline-block;
+                margin-bottom: 0.5em;
+                padding-left: 0.2em;
+                i {
+                    font-size: 0.9em;
+                    vertical-align: middle;
+                    margin-right: 0.5em;
+                }
+            }
+        }
+        section {
+            table tr td:last-child {
+                text-align: right;
+            }
+        }
+    }
+}

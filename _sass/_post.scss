@@ -1,0 +1,44 @@
+
+
+.post {
+    $p: &;
+    position: relative;
+    padding: 0 0 0.5rem 2rem;
+    margin-bottom: 25px;
+    &-full:before {
+        @include massive-vertical-border-common(10em);
+    }
+    &-preview:before {
+        @include massive-vertical-border-common(100%);
+    }
+    & &-header {
+        margin-bottom: 15px;
+        padding-bottom: 5px;
+        border-bottom: $horizontal-separating-border;
+        & #{$p}-title {
+            line-height: 20px;
+            font-size: 20px;
+            margin: 15px 0 10px;
+            a {
+                text-decoration: none;
+                font-weight: bold;
+            }
+        }
+        & #{$p}-info {
+            font-size: 13px;
+            a {
+                color: $post-info-tag-color;
+            }
+            & #{$p}-tag {
+                padding: 0rem 0.5rem;
+            }
+        }
+    }
+    & &-body {
+        .btn-next {
+            font-size: 0.8em;
+            vertical-align: middle;
+            padding: 0 1%;
+        }
+    }
+}

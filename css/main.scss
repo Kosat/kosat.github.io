@@ -1,0 +1,10 @@
+--- 
+# Only the main Sass file needs front matter 
+--- 
+
+@charset "utf-8";
+
+$JEKYLL_ENV: {{jekyll.environment}} !default;
+
+// Add all dependencies and/or code to _sass/_main.scss. Not here.
+@import "main";

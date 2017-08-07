@@ -1,0 +1,86 @@
+//****************************
+//******FONT AWESOME**********
+//****************************
+
+$fa-font-path: "../fonts" !default;
+@if $JEKYLL_ENV == 'production'
+{
+    $fa-font-path: "//netdna.bootstrapcdn.com/font-awesome/4.7.0/fonts";
+};
+//@debug $JEKYLL_ENV;
+
+//*********************************
+
+
+//== Typography
+//
+//## Font, line-height, and color for body text, headings, and more.
+$font-family-sans-serif:  "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif !default;
+//** Default monospace fonts for `<code>`, `<kbd>`, and `<pre>`.
+$font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace !default;
+$font-family-base:        $font-family-sans-serif !default;
+
+$font-size-base:          16px !default;
+
+// Small screen / tablet
+//** Deprecated `$screen-sm` as of v3.0.1
+$screen-sm: 768px !default;
+$screen-sm-min: $screen-sm !default;
+// Nav-bar collaps width value
+$grid-float-breakpoint: 1.0 * $screen-sm-min !default;
+$grid-float-breakpoint-max: $grid-float-breakpoint - 1; //200px;
+
+//== Grid system
+//
+//## Define your custom responsive grid.
+
+//** Number of columns in the grid.
+$grid-columns:              12 !default;
+//** Padding between columns. Gets divided in half for the left and right.
+$grid-gutter-width:         30px !default;
+
+//== Components
+//
+$border-radius-base : 0px !default;
+$border-radius-large : 0px !default;
+$border-radius-small : 0px !default;
+
+//== Navbar
+//
+//##
+// Basics of a navbar
+// $navbar-height:                    50px !default;
+// $navbar-margin-bottom:             $line-height-computed !default;
+// $navbar-border-radius:             $border-radius-base !default;
+$navbar-border-radius: 0 !default;
+$navbar-padding-horizontal:        floor(($grid-gutter-width / 2)) !default;
+// $navbar-padding-vertical:          (($navbar-height - $line-height-computed) / 2) !default;
+// $navbar-collapse-max-height:       340px !default;
+$navbar-default-color: #b2bbbd !default;
+$navbar-default-bg: #3e474f !default;
+$navbar-default-border: darken($navbar-default-bg, 6.5%) !default;
+// Navbar links
+$navbar-default-link-color: white !default;
+$navbar-default-link-hover-color: #333 !default;
+// Navbar brand label
+$navbar-default-brand-color: $navbar-default-link-color !default;
+$navbar-default-brand-hover-color: darken($navbar-default-brand-color, 10%) !default;
+$navbar-default-brand-hover-bg: transparent !default;
+// Navbar : remove radius
+$navbar-border-radius: 0;
+
+
+//== Forms
+//
+//##
+//** `<input>` background color
+$input-bg: #fff !default;
+
+//** Text color for `<input>`s
+$input-color: black !default;
+//** `<input>` border color
+$input-border: white !default;
+//** Background color for textual input addons
+$input-group-addon-bg: white !default;
+//** Border color for textual input addons
+$input-group-addon-border-color: $input-border !default;
