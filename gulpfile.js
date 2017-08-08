@@ -107,7 +107,7 @@ gulp.task('transpile-dev', function(done) {
 gulp.task('prep-release', ['jekyll-build-release'], function() {
     return gulp.src('_site/css/main.css')
         .pipe(uncss({
-            html: ['index.html', 'tags.html' ,'_posts/**/*.html', '_includes/*.html', '_layouts/*.html']
+            html: ['_site/*.html', '_site/**/*.html']
         }))
         .pipe(minifycss())
         .pipe(rename('main.min.css'))
@@ -123,7 +123,7 @@ gulp.task('dev', function() {
 });
 
 gulp.task('release', function(callback) {
-    runSequence('clean', 'jekyll-build-release', 'jekyll-serve', callback);
+    runSequence('clean', 'prep-release', 'jekyll-serve', callback);
 });
 
 gulp.task('default', ['dev'])
