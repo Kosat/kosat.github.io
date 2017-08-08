@@ -17,7 +17,9 @@
 // Core CSS
 @import "bootstrap/scaffolding";
 @import "bootstrap/type";
+/*uncss:ignore start*/
 @import "bootstrap/code";
+/*uncss:ignore end*/
 @import "bootstrap/grid";
 @import "bootstrap/tables";
 @import "bootstrap/forms";
