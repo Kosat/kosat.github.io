@@ -112,7 +112,7 @@ Snowflake do not extend *C#* language in any way (except for *new Owner<MyClass>
 3. Unfortunately, tying a lifetime of manual object to the lifetime of correspondent `Owner<T>` is not enough in a multithreaded environment. To guarantee that manual object will not be reclaimed while one of threads still uses it, Snowflake introduces shields. 
 
     ```csharp
-    struct Shield<T> : IDisposable 	where T:class 
+    struct Shield<T> : IDisposable where T:class 
     {
         static Shield<T> Create();
         void Defend(ref Owner<T> u);
