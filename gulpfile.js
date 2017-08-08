@@ -5,6 +5,7 @@ var del = require('del');
 var cp = require('child_process');
 var uncss = require('gulp-uncss');
 var minifycss = require('gulp-minify-css');
+var rename = require('gulp-rename');
 var sourcemaps = require('gulp-sourcemaps');
 var runSequence = require('run-sequence');
 var sass = require('gulp-sass');
@@ -63,7 +64,7 @@ gulp.task('jekyll-build-dev', function(done) {
  * Build the Release Jekyll Site
  */
 gulp.task('jekyll-build-release', function(done) {
-    return cp.spawn('bundle', ['exec', 'jekyll build --config ./_config.yml,'], { stdio: 'inherit' })
+    return cp.spawn('bundle', ['exec', 'jekyll build --config ./_config.yml'], { stdio: 'inherit' })
         .on('error', (error) => gutil.log(gutil.colors.red(error.message)))
         .on('close', done);
 });
@@ -81,7 +82,7 @@ gulp.task('jekyll-serve', function(done) {
 
     });
 
-    return cp.spawn('bundle', ['exec', 'jekyll', 'serve', '--skip-initial-build' /*'--incremental'*/ , '--host', 'localhost', '--port', '4000', '--no-watch'], { stdio: 'inherit' }) // Adding incremental reduces build time.
+    return cp.spawn('bundle', ['exec', 'jekyll serve --skip-initial-build --host localhost --port 4000 --no-watch'], { stdio: 'inherit' }) // Adding incremental reduces build time.
         .on('error', (error) => gutil.log(gutil.colors.red(error.message)))
         .on('close', done);
 });
@@ -98,18 +99,19 @@ gulp.task('jekyll-watch', function() {
 
 gulp.task('transpile-dev', function(done) {
     del('_site/css/core.css');
-    return cp.spawn('bundle', ['exec', 'sass', './_sass/_main.scss', './_site/css/main.css'], { stdio: 'inherit' }) // Adding incremental reduces build time.
+    return cp.spawn('bundle', ['exec', 'sass ./_sass/_main.scss ./_site/css/main.css'], { stdio: 'inherit' }) // Adding incremental reduces build time.
         .on('error', (error) => gutil.log(gutil.colors.red(error.message)))
         .on('close', done);
 });
 
-gulp.task('post', function() {
+gulp.task('prep-release', ['jekyll-build-release'], function() {
     return gulp.src('_site/css/main.css')
         .pipe(uncss({
-            html: ['index.html', '_posts/**/*.html', '_includes/*.html', '_layouts/*.html']
+            html: ['index.html', 'tags.html' ,'_posts/**/*.html', '_includes/*.html', '_layouts/*.html']
         }))
         .pipe(minifycss())
-        .pipe(gulp.dest('_site/css/'));
+        .pipe(rename('main.min.css'))
+        .pipe(gulp.dest('./css/'));
 });
 
 gulp.task('dev', function() {
@@ -121,7 +123,7 @@ gulp.task('dev', function() {
 });
 
 gulp.task('release', function(callback) {
-    runSequence('clean','jekyll-build-release', 'jekyll-serve', callback);
+    runSequence('clean', 'jekyll-build-release', 'jekyll-serve', callback);
 });
 
 gulp.task('default', ['dev'])
