@@ -42,6 +42,6 @@ gems:
 permalink: pretty
 
 sass: 
-   style: compressed
+   style: expanded #don't change it, it's necessary for uncss
 
     
