@@ -35,6 +35,13 @@
         }
     }
     & &-body {
+        .post-image{
+            float:left;
+            width:128px;
+            height:128px;
+            margin-right:0.5em;
+            margin-bottom:0.5em;
+        }
         .btn-next {
             font-size: 0.8em;
             vertical-align: middle;
