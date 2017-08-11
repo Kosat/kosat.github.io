@@ -1,5 +1,5 @@
   .global-btn-top {
-    background: lighten($navbar-default-bg, 50%);
+    background: $navbar-default-bg;
     -webkit-transition: background-color 0.3s linear;
     -moz-transition: background-color 0.3s linear;
       -o-transition: background-color 0.3s linear;
@@ -16,8 +16,9 @@
     right: 40px;
     z-index: 999;
     font-size: 18px;
+    opacity: .5;
   }
   .global-btn-top:hover {
-    background: darken($navbar-default-bg, 25%);
+    background: $navbar-default-bg;
     opacity: .8;
   }
