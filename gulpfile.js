@@ -135,7 +135,8 @@ gulp.task('scripts-release', function(callback) {
     .pipe(jshint.reporter("default"))
     .pipe(uglify())
     .pipe(rename('main.min.js'))
-    .pipe(gulp.dest('_site/scripts/'))
+    .pipe(gulp.dest('./scripts'))
+    .pipe(gulp.dest('_site/scripts'))
     .on('error', (error) => gutil.log(gutil.colors.red(error.message)))
     .on('close', callback);;
 });
