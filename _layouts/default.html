@@ -16,12 +16,12 @@
     {% if jekyll.environment == "production" %}
     <script src="//code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="{{/scripts/main.min.js | prepend: site.baseurl}}{{site.time | date:'?%s%N'}}"></script>
+    <script src="{{'/scripts/main.min.js' | prepend: site.baseurl}}{{site.time | date:'?%s%N'}}"></script>
     {% include google_analytics.html %}
     {% else %}
     <script src="{{ "/scripts/jquery.js" | prepend: site.baseurl }}"></script>
     <script src="{{ "/scripts/bootstrap.js" | prepend: site.baseurl }}"></script>
-    <script src="{{/scripts/main.js | prepend: site.baseurl }}"></script>
+    <script src="{{'/scripts/main.js' | prepend: site.baseurl }}"></script>
     {% endif %}
 </body>
 
