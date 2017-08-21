@@ -4,7 +4,7 @@
     $p: &;
     position: relative;
     padding: 0 0 0.5rem 2rem;
-    margin-bottom: 25px;
+    margin-bottom: 80px;
     &-full:before {
         @include massive-vertical-border-common(10em);
     }
@@ -35,10 +35,29 @@
         }
     }
     & &-body {
+        h1 {
+            clear: left;
+        }
+        img {
+            @include img-responsive;
+            @include center-block;
+            margin-top: 1em;
+            margin-bottom: 1em; 
+        }
+        .table30 {
+           @extend .table;
+           @extend .table-bordered;
+           width:30%;
+           text-align: center;
+           margin: 2em auto !important;
+           float: none !important;
+        }
         .post-image{
             float:left;
+            vertical-align: middle;
             width:128px;
             height:128px;
+            margin-top:0.1em;
             margin-right:0.5em;
             margin-bottom:0.5em;
         }
