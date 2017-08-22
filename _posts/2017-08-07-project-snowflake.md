@@ -4,6 +4,7 @@ title:  "Project Snowflake: getting the best of two worlds"
 date:   2017-08-07
 tags: [.net, C#]
 excerpt_separator: <!--more-->
+comments: true
 ---
 
 ![Snow Flake](/images/2017-08-07-project-snowflake/snow_flake_.png){:class="post-image"}

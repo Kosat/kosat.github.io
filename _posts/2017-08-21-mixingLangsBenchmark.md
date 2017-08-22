@@ -4,6 +4,7 @@ title: "Mixing languages for better or worse"
 date: 2017-08-21
 tags: [.net, C#, F#, C, Benchmark]
 excerpt_separator: <!--more-->
+comments: true
 ---
 ![Snow Flake](/images/2017-08-21-MixingLangsBenchmark/graph.png){:class="post-image"} In this post I'd like to do some benchmarking and review a number of implementations of Damerau–Levenshtein algorithm in terms of their performance when running on .Net 4.6.1 and just released .Net Core 2.0 environments. <!--more-->
 
