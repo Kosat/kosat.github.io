@@ -11,7 +11,7 @@ var runSequence = require('run-sequence');
 var sass = require('gulp-sass');
 var jshint = require("gulp-jshint");
 var uglify   = require('gulp-uglify');
-
+var purifycss   = require('gulp-purifycss');
 
 
 gulp.task("copy_npm_deps", /* ["clean"],*/ function() {
@@ -117,10 +117,13 @@ gulp.task('styles-dev', function(callback) {
 });
 
 gulp.task('styles-release', ['jekyll-build-release'], function(callback) {
-    return gulp.src('_site/css/main.css')
-        .pipe(uncss({
-            html: ['_site/*.html', '_site/**/*.html']
-        }))
+     return gulp.src('_site/css/main.css')
+    //     .pipe(uncss({
+    //         html: ['_site/*.html', '_site/**/*.html']
+    //     }))
+        .pipe(purifycss(
+            ['_site/*.html', '_site/**/*.html']
+        ))
         .pipe(minifycss())
         .pipe(rename('main.min.css'))
         .pipe(gulp.dest('_site/css/'))
