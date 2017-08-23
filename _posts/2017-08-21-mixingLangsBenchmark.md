@@ -110,5 +110,7 @@ On a small sample of 10 chars F# implementations performed more than twice slowe
 *Native C* showed at least 2 times better performance on large samples than *C#* implementations but yielded practically the same performance results on the 10-character samples because of the *P/Invoke* overhead. F# implementation completely lost the competition on smaller samples, even though, performed only 15% slower than *C#* `Safe` implementation on the strings of 1000 letters.
 
 Overall, *RyuJIT64* compiler that comes with *.Net Core 2.0* generated less performant machine code compared to the the different version of this jit compiler included in *.Net 4.6.1*, while *MSVC* was the only compiler that optimized the code to use *SIMD* instructions.
+As *RyuJIT64* compiler do not automatically vectorize code, it is up to developer to manually write an optimized code using vector types from *System.Numerics.Vectors* nuget package, which currently provides a very limited access to SIMD intrinsics. The good news is that currently engineers from Intel proposed a new extended [intrinsics API](https://github.com/dotnet/corefx/issues/22940) that is planned to be included in one of the future releases of *.Net Core*. 
 
 All the code I used in this post and benchmark reports are available in a separate repository [MixingLangsBenchmark](https://github.com/Kosat/MixingLangsBenchmark "MixingLangsBenchmark"). 
+
